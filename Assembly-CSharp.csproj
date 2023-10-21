@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4A3E2331-5C7C-6DC6-7F65-B9130064170C}</ProjectGuid>
+    <ProjectGuid>{C21BAC3D-E92F-60BB-DCB3-3B20E33EAF78}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -59,12 +59,12 @@
     <Compile Include="Assets\GWorld.cs" />
     <Compile Include="Assets\GAction.cs" />
     <Compile Include="Assets\GAgent.cs" />
-    <Compile Include="Assets\WorldState.cs" />
     <Compile Include="Assets\GPlanner.cs" />
-    <Compile Include="Assets\Patient.cs" />
-    <Compile Include="Assets\Actions\GoToHospital.cs" />
+    <Compile Include="Assets\WorldState.cs" />
     <Compile Include="Assets\Actions\GoToWaitingRoom.cs" />
     <Compile Include="Assets\Actions\Register.cs" />
+    <Compile Include="Assets\Patient.cs" />
+    <Compile Include="Assets\Actions\GoToHospital.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
