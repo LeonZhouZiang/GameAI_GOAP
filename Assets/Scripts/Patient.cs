@@ -9,18 +9,24 @@ public class Patient : GAgent
     {
         base.Start();
         SubGoal s1 = new("isWaiting", 1, true);
-        goals.Add(s1, 3);
+        goals.Add(s1, 5);
 
         SubGoal s2 = new("isTreated", 1, true);
         goals.Add(s2, 5);
 
         SubGoal s3 = new("isHome", 1, true);
-        goals.Add(s3, 5);
+        goals.Add(s3, 7);
+
+        SubGoal s4 = new("satisfied", 1, false);
+        goals.Add(s4, 6);
+
+        Invoke(nameof(GetThirsty), Random.Range(20, 30));
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void GetThirsty()
     {
-        
+        beliefs.SetState("thirsty", 1);
+        Invoke(nameof(GetThirsty), Random.Range(20, 30));
     }
 }

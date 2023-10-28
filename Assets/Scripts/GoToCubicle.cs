@@ -20,6 +20,7 @@ public class GoToCubicle : GAction
         GWorld.Instance.AddCubicles(target);
         inventory.RemoveItem(target);
         GWorld.Instance.GetWorld().ModifyState("FreeCubicle", 1);
+        beliefs.ModifyState("treatedPatient", 1);
         return true;
     }
 }

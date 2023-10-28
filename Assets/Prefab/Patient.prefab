@@ -2825,6 +2825,8 @@ GameObject:
   - component: {fileID: 8960161151215197885}
   - component: {fileID: 7876952131659965087}
   - component: {fileID: 2145248853647392090}
+  - component: {fileID: 338290509957608697}
+  - component: {fileID: 2843482921844569628}
   m_Layer: 0
   m_Name: Patient
   m_TagString: Untagged
@@ -2968,7 +2970,7 @@ MonoBehaviour:
   targetTag: 
   duration: 5
   preConditions:
-  - key: atHospital
+  - key: readyToCured
     value: 0
   afterEffects:
   - key: isTreated
@@ -2995,6 +2997,56 @@ MonoBehaviour:
     value: 0
   afterEffects:
   - key: isHome
+    value: 0
+--- !u!114 &338290509957608697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7881807149238628900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf82bb004790a1a42bb06b077f27dc20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: BuyDrinks
+  cost: 1
+  target: {fileID: 0}
+  targetTag: VendingMachine
+  duration: 3
+  preConditions:
+  - key: thirsty
+    value: 0
+  - key: atHospital
+    value: 0
+  - key: FreeVendingMachine
+    value: 0
+  afterEffects:
+  - key: hasDrinks
+    value: 0
+--- !u!114 &2843482921844569628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7881807149238628900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f6d68734c46ada4596c05c5ce83d9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: VendingToWaiting
+  cost: 1
+  target: {fileID: 0}
+  targetTag: WaitingArea
+  duration: 0
+  preConditions:
+  - key: hasDrinks
+    value: 0
+  afterEffects:
+  - key: satisfied
     value: 0
 --- !u!1 &7927236269272520591
 GameObject:

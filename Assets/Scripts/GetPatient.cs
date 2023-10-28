@@ -21,6 +21,7 @@ public class GetPatient : GAction
         }
         inventory.AddItem(resource);
         GWorld.Instance.GetWorld().ModifyState("FreeCubicle", -1);
+        target.GetComponent<GAgent>().beliefs.RemoveState("atHospital");
         return true;
     }
 
@@ -30,6 +31,7 @@ public class GetPatient : GAction
         if (target)
         {
             target.GetComponent<GAgent>().inventory.AddItem(resource);
+            target.GetComponent<GAgent>().beliefs.AddState("readyToCured", 1);
         }
         return true;
     }

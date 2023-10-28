@@ -4,8 +4,22 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+    public static Spawner instance;
+
+    private void Awake()
+    {
+        if(instance != null) 
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+    }
+
     public GameObject patientPrefab;
+    public GameObject nursePrefab;
     public int numPatients;
+    public int numNurse;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +28,10 @@ public class Spawner : MonoBehaviour
         {
             Instantiate(patientPrefab, transform.position, Quaternion.identity);
         }
+        for (int i = 0; i < numNurse; i++)
+        {
+            Instantiate(nursePrefab, transform.position, Quaternion.identity);
+        }
 
         Invoke(nameof(SpawnPatient), 5);
     }
@@ -21,7 +39,12 @@ public class Spawner : MonoBehaviour
     private void SpawnPatient()
     {
         Instantiate(patientPrefab, transform.position, Quaternion.identity);
-        Invoke(nameof(SpawnPatient), Random.Range(2, 10));
+        Invoke(nameof(SpawnPatient), Random.Range(10, 15));
+    }
+
+    public void SpawnNurse()
+    {
+        Instantiate(nursePrefab, transform.position, Quaternion.identity);
     }
 
     // Update is called once per frame

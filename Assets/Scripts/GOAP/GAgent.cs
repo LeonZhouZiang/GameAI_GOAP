@@ -48,12 +48,21 @@ public class GAgent : MonoBehaviour
         invoked = false;
     }
 
+    private void OnDrawGizmos()
+    {
+        if(currentAction != null && currentAction.target != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(transform.position, currentAction.target.transform.position);
+        }
+    }
+
     private void LateUpdate()
     {
         if(currentAction != null && currentAction.running)
         {
             float distanceToTarget = Vector3.Distance(currentAction.target.transform.position, transform.position);
-            if(currentAction.agent.hasPath && distanceToTarget < 2f)
+            if(currentAction.agent.hasPath && distanceToTarget < 3f)
             {
                 if (!invoked)
                 {
@@ -105,6 +114,7 @@ public class GAgent : MonoBehaviour
                 }
             } else
             {
+                Debug.Log("Action Failed: " + currentAction.actionName);
                 actionQueue = null;
             }
         }
